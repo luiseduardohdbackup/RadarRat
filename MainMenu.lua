@@ -22,16 +22,16 @@ function onInputdeviceStatusChanged( event )
 end
 
 -- Called when the scene's view does not exist:
-function scene:createScene( event )
+function scene:create( event )
     local group = self.view
 
-    background = display.newImage("images/back3.png", 0 , 0)
-     
-    group:insert(background) 
+    --background = display.newImage("images/back3.png", 0 , 0)
+    print("testing")
+    --group:insert(background) 
 end
 
 -- Called BEFORE scene has moved onscreen:
-function scene:enterScene( event )
+function scene:show( event )
     local group = self.view
     
     -- check which devices we have (if any)
@@ -59,7 +59,7 @@ end
 
 
 -- Called when scene is about to move offscreen:
-function scene:exitScene( event )
+function scene:hide( event )
     local group = self.view
     
 end
@@ -67,7 +67,7 @@ end
 
 
 -- Called prior to the removal of scene's "view" (display group)
-function scene:destroyScene( event )
+function scene:destroy( event )
     local group = self.view
     
 end
@@ -94,24 +94,19 @@ end
 ---------------------------------------------------------------------------------
 
 -- "createScene" event is dispatched if scene's view does not exist
-scene:addEventListener( "createScene", scene )
+scene:addEventListener( "create", scene )
 
 -- "enterScene" event is dispatched whenever scene transition has finished
-scene:addEventListener( "enterScene", scene )
+scene:addEventListener( "show", scene )
 
 -- "exitScene" event is dispatched before next scene's transition begins
-scene:addEventListener( "exitScene", scene )
+scene:addEventListener( "hide", scene )
 
 -- "destroyScene" event is dispatched before view is unloaded, which can be
 -- automatically unloaded in low memory situations, or explicitly via a call to
 -- storyboard.purgeScene() or storyboard.removeScene().
-scene:addEventListener( "destroyScene", scene )
+scene:addEventListener( "destroy", scene )
 
--- "overlayBegan" event is dispatched when an overlay scene is shown
-scene:addEventListener( "overlayBegan", scene )
-
--- "overlayEnded" event is dispatched when an overlay scene is hidden/removed
-scene:addEventListener( "overlayEnded", scene )
 
 ---------------------------------------------------------------------------------
 

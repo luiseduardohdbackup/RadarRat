@@ -14,7 +14,7 @@ local movement = nil
 
 -- Attach this instance of mte to the composer
 composer.mte = mte
-
+composer.gotoScene("MainMenu")
 -- Movement functions 
 local move = function( event )
 	if event.phase == "began" then
@@ -46,3 +46,5 @@ local move = function( event )
 	end
 	return true
 end
+
+
