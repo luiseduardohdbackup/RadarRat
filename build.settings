@@ -3,7 +3,8 @@
 
 settings = {
 	
-	orientation = {
+	orientation = 
+    {
 		default = "portrait",
 		supported = { "portrait", }
 	},
