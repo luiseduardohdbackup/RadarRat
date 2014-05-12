@@ -10,7 +10,17 @@ local inputDevices = system.getInputDevices()
 local controllers = {}
 
 -- forward references should go here --
-
+local createMenuItems
+local createTitle
+local createMenuAudio
+local displayTitle
+local displayMenuItems
+local playMenuAudio
+local onOptionsButton
+local onPlayButton
+local onQuitButton
+local onAudioButton
+local onCreditsButton
 
 ---------------------------------------------------------------------------------
 -- BEGINNING OF IMPLEMENTATION
@@ -92,9 +102,17 @@ function scene:show( event )
         if controllers[1] ~= nil then
             joystickEnabled = true
         end
+        
+        -- Setup main menu 
+        createTitle( group )
+        createMenuItems( group )
+        createMenuAudio( group )
+    elseif event.phase == "did" then
+        displayTitle()
+        displayMenuItems()
+        playMenuAudio()
     end
 end
-
 
 ---------------------------------------------------------------------------
 -- hide
