@@ -60,6 +60,17 @@ end
 ---------------------------------------------------------------------------
 function scene:create( event )
     local group = self.view
+    
+    -- load background images
+    local menuBackground = display.newImage( "MenuBackground.png")
+    menuBackground.width = display.contentWidth
+    menuBackground.height = display.contentHeight
+    
+    -- load sprites
+    
+    
+    -- load audio
+    
 end
 
 ---------------------------------------------------------------------------
@@ -126,6 +137,11 @@ end
 function scene:hide( event )
     local group = self.view
     
+    if event.phase == "will" then
+    
+    elseif event.phase == "did" then
+        
+    end
 end
 
 ---------------------------------------------------------------------------
@@ -144,19 +160,12 @@ end
 ---------------------------------------------------------------------------------
 -- END OF IMPLEMENTATION
 ---------------------------------------------------------------------------------
-
--- "createScene" event is dispatched if scene's view does not exist
 scene:addEventListener( "create", scene )
--- "enterScene" event is dispatched whenever scene transition has finished
 scene:addEventListener( "show", scene )
--- "exitScene" event is dispatched before next scene's transition begins
 scene:addEventListener( "hide", scene )
--- "destroyScene" event is dispatched before view is unloaded, which can be
--- automatically unloaded in low memory situations, or explicitly via a call to
--- storyboard.purgeScene() or storyboard.removeScene().
 scene:addEventListener( "destroy", scene )
 
----------------------------------------------------------------------------------
+----------- runtime and system events ----------------
 Runtime:addEventListener( "key", onKeyEvent )
 Runtime:addEventListener( "inputDevicestatus", onInputdeviceStatusChanged )
 
